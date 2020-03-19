@@ -13,13 +13,14 @@
 # 2020-3-19
 ## 更新内容
 + 转移到opencore 0.5.6 引导
++ 核显UHD620正常，显存2048MB，HDMI接口正常
 + 修改system product 到MacBookPro14,1，以增加对随航的支持（虽然没有iPad）
 + 板载WiFi目前可以用[AppleIntelWiFi](https://github.com/a565109863/AppleIntelWiFi_Debug/releases)驱动，需要提前修改好BUUID和密码。
 ### WiFi usage
 1. 下载[AppleIntelWiFi-Catalina.zip](https://github.com/Cheers0606/XIAOMI_AIR-13.3_EFI/blob/master/%E9%A2%9D%E5%A4%96%E7%9A%84%E5%8C%85/AppleIntelWiFi-Catalina.zip)。
 2. 解压，右键kext-->显示包内容
 3. 修改Contents-->Info.plist，搜索BSSID和PWD，改为自己的网络。
-4. 使用命令```bash sudo kextunload -v AppleIntelWiFi.kext ```加载。
+4. 使用命令```sudo kextunload -v AppleIntelWiFi.kext ```加载。
 
 **当前WiFi不稳定，会经常异常关机重启，不建议生产环境使用**
 
