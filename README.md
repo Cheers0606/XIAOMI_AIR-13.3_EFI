@@ -10,6 +10,14 @@
 
 ![系统信息](https://github.com/Cheers0606/XIAOMI_AIR-13.3_EFI/blob/master/systeminfo.png)
 
+# 2020-10-13
+## 更新内容
++ 升级opencore 到0.6.2版本 引导
++ 升级系统版本为10.15.7
++ 板载WiFi目前可以用[AirportItlwm](http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1848662)。
++ 使用Wi-Fi需要强制加载IO80211Family，并且设置SecureBootModel为default
+
+
 # 2020-3-19
 ## 更新内容
 + 转移到opencore 0.5.6 引导
@@ -22,9 +30,7 @@
 3. 修改Contents-->Info.plist，搜索BSSID和PWD，改为自己的网络。
 4. 使用命令```sudo kextunload -v AppleIntelWiFi.kext ```加载。
 
-**当前WiFi不稳定，会经常异常关机重启，不建议生产环境使用**
-
-![wifi修改](https://github.com/Cheers0606/XIAOMI_AIR-13.3_EFI/blob/master/WiFi修改.png)
+**当前WiFi相对稳定，睡眠唤醒可能连不上Wi-Fi，删除网络后重新添加即可**
 
 ![wifi](https://github.com/Cheers0606/XIAOMI_AIR-13.3_EFI/blob/master/WiFi1.png)
 
@@ -39,7 +45,7 @@ sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
 # 删掉设置--网络中所有连接并应用。然后重启电脑。
 ```
 ## 当前不完善的
-+ 无线wifi仍然无解。参考[远景论坛](http://bbs.pcbeta.com/viewthread-1838489-1-1.html)，发布地址在[GitHub](https://github.com/a565109863/AppleIntelWiFi_Debug/releases)
++ ~~无线wifi仍然无解。参考[远景论坛](http://bbs.pcbeta.com/viewthread-1838489-1-1.html)，发布地址在[GitHub](https://github.com/a565109863/AppleIntelWiFi_Debug/releases)~~
 + 独立显卡无法工作，因为macOS不支持Optimus技术。使用SSDT-DDGPU	禁用
 + 指纹传感器无法工作。
 
@@ -53,11 +59,7 @@ sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
 + USB 2.0/3.0 正常，未定制，未测试睡眠和休眠
 + HDMI正常
 + 摄像头可正常使用
++ Wi-Fi使用[Intel WIFI驱动开发进展【重大更新，支持接力、定位、原生Wi-Fi】](http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1848662)。
 
-## 下一步
-+ 定制USB
-+ ~~转到opencore~~
-+ 等待大神驱动wifi
-
-## WiFi解决方案
-暂时使用USB外接WiFi（CF-WU810N），驱动在额外的包中。
+# 参考
+> [这位大佬](https://github.com/johnnync13/Xiaomi-Mi-Air)经常更新，而且也比较完善。
